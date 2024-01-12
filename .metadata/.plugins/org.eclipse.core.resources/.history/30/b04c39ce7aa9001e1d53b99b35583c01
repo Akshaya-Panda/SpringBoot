@@ -1,0 +1,21 @@
+package com.dijikstravoting.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.dijikstravoting.bean.CandidateBean;
+import com.dijikstravoting.bean.ElectionBean;
+import com.dijikstravoting.dao.CandidateDao;
+import com.dijikstravoting.dao.ElectionDao;
+
+@Service
+public class CandidateService{	
+@Autowired
+private CandidateDao cd;
+	
+@Transactional
+public int addCandidate(CandidateBean vb) {
+return cd.addCandidate(vb);
+}
+}

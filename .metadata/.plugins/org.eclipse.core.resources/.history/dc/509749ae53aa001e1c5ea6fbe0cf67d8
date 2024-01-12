@@ -1,0 +1,15 @@
+package com.dijikstravoting.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dijikstravoting.dao.ResultsDao;
+
+@Service
+public class ResultsService {
+
+	@Autowired
+	private ResultsDao rd;	
+	
+	
+}

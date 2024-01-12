@@ -1,0 +1,5 @@
+package com.dijikstravoting.dao;
+
+public class ResultsDao {
+
+}

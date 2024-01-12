@@ -1,0 +1,49 @@
+package com.example.SpringBoot.controller;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.SpringBoot.bean.EmployeeBean;
+import com.example.SpringBoot.emailexception.MailException;
+import com.example.SpringBoot.service.AdminService;
+
+@RestController
+@CrossOrigin(origins="*")
+@RequestMapping("/admin")
+public class AdminController {
+	@Autowired
+	private AdminService adserv;
+
+	@GetMapping("/welcome")
+	public String meth1() {
+		return "<h1> Welcome to Spring Boot Application</h1>";
+	}
+	
+	//Here the postmapping is done where the user will give his credentials and according to that the registration will be done.
+	
+	@PostMapping("/addEmp")
+	public String meth2(@RequestBody EmployeeBean eb) throws MailException
+	{
+		int i=adserv.addEmployee(eb);
+		if(i==1)
+		{
+			return "<h1>record inserted successfully\n Registration Success";
+			
+		}
+		else
+		{
+			 throw new MailException("Email already registered");
+		}
+}
+}

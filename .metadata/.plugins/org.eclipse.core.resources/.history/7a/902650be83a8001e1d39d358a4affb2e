@@ -1,0 +1,5 @@
+package com.dijikstravoting.bean;
+
+public class PartyBean {
+
+}

@@ -1,0 +1,13 @@
+package com.dijikstravoting.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.dijikstravoting.bean.ElectionBean;
+
+
+@Repository
+public interface ElectionDao extends JpaRepository<ElectionBean ,String> {
+	
+
+}

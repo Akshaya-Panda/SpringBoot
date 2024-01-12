@@ -1,0 +1,36 @@
+package com.dijikstravoting.dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.dijikstravoting.bean.ApplicationBean;
+
+@Repository
+public class ApplicationDao {
+	@Autowired
+	private SessionFactory sf;
+
+	public SessionFactory getSf() {
+		return sf;
+	}
+
+	public void setSf(SessionFactory sf) {
+		this.sf = sf;
+	}
+
+	@Override
+	public String toString() {
+		return "CandidateDao [sf = " + sf + "]";
+	}
+	
+	public List<ApplicationBean> viewAllAdminPendingApplications() {
+		Session s = sf.openSession();
+		Query<ApplicationBean> q = s.createQuery("from ApplicationBean where passedstatus=0 and approvedstatus=0", ApplicationBean.class);
+		return q.getResultList();
+	}
+}

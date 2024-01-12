@@ -1,0 +1,18 @@
+package com.example;
+
+
+import org.junit.Test;
+
+import junit.framework.Assert;
+
+class DemoTestingApplicationTests{
+
+
+	@Test
+	public void test1() 
+	{
+		Assert.assertEquals(15,Calc.add(12,15));
+	}
+
+}
+

@@ -1,0 +1,30 @@
+package com.dijikstravoting.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.dijikstravoting.bean.PartyBean;
+import com.dijikstravoting.service.PartyService;
+
+public class PartyController {
+	@Autowired
+	private PartyService pserv;
+
+	@GetMapping("/welcome")
+	public String meth1() {
+		return "<h1> Welcome to Spring Boot Application</h1>";
+	}
+	
+	//Here the postmapping is done where the user will give his credentials and according to that the registration will be done.
+	
+	@PostMapping("/addParty")
+	public String addParty(@RequestBody PartyBean pb) 
+	{
+		
+		
+			return "<h1>"+pserv.addParty(pb)+" record inserted successfully\n Success";		
+}
+
+}

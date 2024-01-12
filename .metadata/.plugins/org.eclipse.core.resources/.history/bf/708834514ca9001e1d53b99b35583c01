@@ -1,0 +1,50 @@
+package com.dijikstravoting.service;
+
+//import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.dijikstravoting.bean.ElectionBean;
+import com.dijikstravoting.dao.ElectionDao;
+
+
+
+@Service
+public class ElectionService {
+//	@Autowired
+//	private ElectionDao ed;
+//	 public String addElection(ElectionBean eb)
+//	 {
+//			int i=0;
+//			if(eb!=null)
+//			{
+//	ed.save(eb);
+//	i=1;
+//	if(i==1)
+//	{
+//	return "Success";
+//	}
+//	
+//	else {
+//		return "Fail";
+//	}
+//		}
+//			else {
+//				return "Error";
+//				}
+//			}
+	
+	
+@Autowired
+private ElectionDao dd;
+	
+@Transactional
+public int addElection(ElectionBean vb) {
+return dd.addElection(vb);
+}
+	}
+	
+
+
